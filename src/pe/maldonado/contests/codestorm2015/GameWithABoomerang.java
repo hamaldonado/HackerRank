@@ -20,7 +20,7 @@ public class GameWithABoomerang {
 	
 	static int winner(int n) {
 							
-		int i, j, k, alive = n; 
+		int i, k, alive = n; 
 		ArrayList <Integer> aborigens = new ArrayList<>(n);
 		
 		for (i = 1; i <= n; i++) {
@@ -30,15 +30,21 @@ public class GameWithABoomerang {
 		i = 0;
 		
 		while (alive > 1) {
+		
+			if (aborigens.size() == 112) {
+				System.out.println("x");
+			}
+			
 			k = whoIsKilled(aborigens.size(), i);
 			aborigens.remove(k);
 			alive--;
 			
 			if (k != i) {
-				i++;
-				
 				if (i == aborigens.size()) {
 					i = 0;
+				}
+				else {
+					i++;
 				}
 			}
 
