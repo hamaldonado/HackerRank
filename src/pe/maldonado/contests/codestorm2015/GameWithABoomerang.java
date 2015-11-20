@@ -6,16 +6,14 @@ import java.util.ArrayList;
 public class GameWithABoomerang {
 
 	static int whoIsKilled(int n, int i) {
-		
 		int d = n/2;
-		
+	
 		if (n % 2 == 0) {
 			return i < d ? i + d : i - d; 
 		} 
 		else {
 			return i;
 		}
-		
 	}
 	
 	static int winner(int n) {
@@ -30,22 +28,19 @@ public class GameWithABoomerang {
 		i = 0;
 		
 		while (alive > 1) {
-		
-			if (aborigens.size() == 112) {
-				System.out.println("x");
-			}
-			
+	
 			k = whoIsKilled(aborigens.size(), i);
 			aborigens.remove(k);
 			alive--;
 			
-			if (k != i) {
-				if (i == aborigens.size()) {
-					i = 0;
-				}
-				else {
-					i++;
-				}
+			// if the index of the item removed is bigger the current index i, we increase i.  
+			// If not, we don't move i, as all the items will be shifted to the left.
+			if (k > i) {
+				i++;
+			}
+			
+			if (i == aborigens.size()) {
+				i = 0;
 			}
 
 		}
