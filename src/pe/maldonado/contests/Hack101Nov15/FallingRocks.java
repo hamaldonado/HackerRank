@@ -23,7 +23,6 @@ public class FallingRocks {
 			while (r + maxLeft < H && G[r + maxLeft][p-1] != 'R') {
 				maxLeft++;
 			}
-				 
 			
 		}
 		
